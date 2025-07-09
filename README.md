@@ -1,6 +1,6 @@
 # Meu Site
 
-Site simples feito em HTML, CSS e JavaScript.
+Site feito em HTML, CSS e JavaScript.
 
 ## Como usar
 
@@ -16,8 +16,7 @@ Basta abrir o arquivo `index.html` no navegador.
 
 ### Página Inicial
 Visual da seção inicial do site, com o nome da empresa e menu de navegação.
-![Página Inicial](https://raw.githubusercontent.com/Gabriel-https/Planvest/main/image/home.jpg)
-
+![Página Inicial](image/home.jpg)
 
 ### Seção Sobre
 ![Página Sobre](image/sobre.jpg)
