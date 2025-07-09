@@ -16,7 +16,8 @@ Basta abrir o arquivo `index.html` no navegador.
 
 ### Página Inicial
 Visual da seção inicial do site, com o nome da empresa e menu de navegação.
-![Página Inicial](image/home.jpg)
+![Página Inicial](https://raw.githubusercontent.com/Gabriel-https/Planvest/main/image/home.jpg)
+
 
 ### Seção Sobre
 ![Página Sobre](image/sobre.jpg)
