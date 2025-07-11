@@ -852,29 +852,6 @@ footer {
     color: #292624;
   }
   
-  /* tooltip */
-  .icon-content .tooltip {
-    position: absolute;
-    bottom: -40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #292624;
-    color: crimson;
-    padding: 6px 12px;
-    border-radius: 4px;
-    font-size: 12px;
-    white-space: nowrap;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity 0.3s ease;
-    border: 1px solid crimson;
-    z-index: 10;
-    pointer-events: none;
-  }
-  
-  .icon-content:hover .tooltip {
-    opacity: 1;
-    visibility: visible;
-  }
+
   
   

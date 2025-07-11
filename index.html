@@ -262,19 +262,16 @@
       <a href="https://wa.me/5513988684493" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">
         <i class="fa-brands fa-whatsapp"></i>
       </a>
-      <span class="tooltip">WhatsApp</span>
     </li>
     <li class="icon-content" data-social="linkedin">
       <a href="https://www.linkedin.com/in/seu-perfil" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
         <i class="fa-brands fa-linkedin-in"></i>
       </a>
-      <span class="tooltip">LinkedIn</span>
     </li>
     <li class="icon-content" data-social="gmail">
       <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox" target="_blank" rel="noopener noreferrer" aria-label="Gmail">
         <i class="fa-solid fa-envelope"></i>
       </a>
-      <span class="tooltip">Gmail</span>
     </li>
   </ul>
 
@@ -289,45 +286,44 @@
     const indicator = document.querySelector(".nav-indicator");
     const scrollUpBtn = document.querySelector(".scroll-up-btn");
 
-    // Variável para controlar último scroll
     let lastScrollTop = 0;
 
-    // Função para mover o indicador do menu
     function moveIndicator(el) {
       indicator.style.left = `${el.offsetLeft}px`;
       indicator.style.width = `${el.offsetWidth}px`;
     }
 
-    // Ativar link clicado e mover indicador
     links.forEach((link) => {
       link.addEventListener("click", () => {
+        // Remove 'active' de todos os links
         links.forEach((l) => l.classList.remove("active"));
+        // Adiciona 'active' no link clicado
         link.classList.add("active");
         moveIndicator(link);
-        // Scroll suave
         document.documentElement.style.scrollBehavior = "smooth";
+
+        // Remove a classe 'active' após 300ms para "sumir" o destaque
+        setTimeout(() => {
+          link.classList.remove("active");
+          // Opcional: volta o indicador para o primeiro link
+          moveIndicator(links[0]);
+        }, 300);
       });
     });
 
-    // Inicializa indicador no ativo ou no primeiro link
-    const active = document.querySelector(".menu-link.active") || links[0];
-    moveIndicator(active);
+    // Inicializa o indicador no primeiro link (sem active fixo)
+    moveIndicator(links[0]);
 
-    // Controle do scroll para mostrar/ocultar navbar e botão scroll-up
     window.addEventListener("scroll", () => {
       let st = window.pageYOffset || document.documentElement.scrollTop;
 
-      // Mostrar/ocultar navbar com classe 'hidden'
       if (st > lastScrollTop && st > 100) {
-        // scroll para baixo - esconde navbar
         navbar.classList.add("hidden");
       } else {
-        // scroll para cima - mostra navbar
         navbar.classList.remove("hidden");
       }
       lastScrollTop = st <= 0 ? 0 : st;
 
-      // Mostrar ou esconder botão scroll-up (opcional)
       if (st > 500) {
         scrollUpBtn.classList.add("show");
       } else {
@@ -335,13 +331,11 @@
       }
     });
 
-    // Clique no botão scroll-up para voltar ao topo
     scrollUpBtn.addEventListener("click", () => {
       document.documentElement.style.scrollBehavior = "auto";
       window.scrollTo({ top: 0, behavior: "smooth" });
     });
 
-    // Toggle menu mobile
     const menuBtn = document.querySelector(".menu-btn");
     const menu = document.querySelector(".navbar .menu");
     menuBtn.addEventListener("click", () => {
@@ -350,6 +344,7 @@
     });
   });
 </script>
+
 
 
     </body>
