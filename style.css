@@ -1,0 +1,880 @@
+/*  import google fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Ubuntu:wght@400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    /*font-family: consolas; */
+    
+}
+html{
+    scroll-behavior: smooth;
+}
+
+.fundo-escuro{
+    background-color: #292624;
+}
+
+/* barra */
+::-webkit-scrollbar {
+    width: 10px;
+}
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/*extras*/
+section{
+    padding: 100px 0;
+}
+.max-width{
+    max-width: 1300px;
+    padding: 0 80px;
+    margin: auto;
+}
+.about, .services, .skills, .teams, .contact, footer{
+    font-family: 'Poppins', sans-serif;
+    min-height: 100vh;
+}
+.about .about-content,
+.services .serv-content,
+.skills .skills-content,
+.contact .contact-content{
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+}
+section .title, .title-escuro{
+    position: relative;
+    text-align: center;
+    font-size: 40px;
+    font-weight: 500;
+    margin-bottom: 60px;
+    padding-bottom: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+section .title::before, .title-escuro::before{
+    content: "";
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    width: 180px;
+    height: 3px;
+    background: crimson;
+    transform: translateX(-50%);
+}
+section .title::after, .title-escuro::after{
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    font-size: 20px;
+    color: crimson;
+    padding: 0 5px;
+    background: #fff;
+    transform: translateX(-50%);
+}
+
+/* NAVBAR */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(41, 38, 36, 0.9);
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.7);
+  z-index: 1000;
+  transition: top 0.4s cubic-bezier(0.33, 1, 0.68, 1); /* Transição suave */
+}
+
+.navbar.hidden {
+  top: -100px; /* ajusta conforme a altura da navbar */
+}
+
+.navbar .max-width {
+  max-width: 1300px;
+  margin: auto;
+  padding: 0 60px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* LOGO */
+.logo a {
+    text-decoration: none;
+    color: crimson;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.menu {
+    list-style: none;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.menu li {
+    position: relative;
+}
+
+.menu-link {
+    color: crimson;
+    text-decoration: none;
+    padding: 22px 35px;
+    font-weight: 500;
+    position: relative;
+    overflow: hidden;
+    z-index: 2;
+    transition: color 0.3s ease-in;
+}
+
+.menu-link::before {
+  content: "";
+  position: absolute;
+  width: calc(100% - 20px); /* 10px de margem em cada lado */
+  height: 2px; /* Mais delicado */
+  background: currentColor; /* Herda a cor do texto */
+  bottom: 15px; /* Ajuste fino: alinhado com a base do texto */
+  left: 10px; /* Margem esquerda */
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform 0.25s cubic-bezier(0.65, 0, 0.35, 1);
+}
+
+.menu-link:hover::before,
+.menu-link.active::before {
+  transform: scaleX(1);
+  transform-origin: left center; /* Animação começa da esquerda */
+}
+
+.menu-link:hover,
+.menu-link.active {
+    color: #fff;
+}
+
+/* INDICADOR DE ABA ATIVA */
+.nav-indicator {
+    position: absolute;
+    bottom: 0;
+    height: 4px;
+    background: var(--primária);
+    border-radius: 2px;
+    transition: all 0.3s ease-in-out;
+    width: 0;
+    left: 0;
+    z-index: 1;
+}
+
+/* MENU HAMBÚRGUER */
+.menu-toggle {
+    display: none; /* Escondido no desktop */
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+    z-index: 1001;
+    background: transparent;
+    border: none;
+  }
+  
+  .menu-toggle span {
+    display: block;
+    position: absolute;
+    height: 3px;
+    width: 100%;
+    background: var(--primária);
+    border-radius: 3px;
+    left: 0;
+    transition: all 0.3s ease;
+  }
+  
+  .menu-toggle span:nth-child(1) {
+    top: 0;
+  }
+  
+  .menu-toggle span:nth-child(2) {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+  
+  .menu-toggle span:nth-child(3) {
+    bottom: 0;
+  }
+  
+  /* Quando o menu está ativo */
+  .menu-toggle.active span:nth-child(1) {
+    top: 50%;
+    transform: translateY(-50%) rotate(45deg);
+  }
+  
+  .menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+  }
+  
+  .menu-toggle.active span:nth-child(3) {
+    bottom: 50%;
+    transform: translateY(50%) rotate(-45deg);
+  }
+
+.scroll-up-btn{
+    position: fixed;
+    height: 45px;
+    width: 42px;
+    background: crimson;
+    right: 30px;
+    bottom: 10px;
+    text-align: center;
+    line-height: 45px;
+    color: #fff;
+    z-index: 9999;
+    font-size: 30px;
+    border-radius: 6px;
+    border-bottom-width: 2px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+.scroll-up-btn.show{
+    bottom: 30px;
+    opacity: 1;
+    pointer-events: auto;
+}
+.scroll-up-btn:hover{
+    filter: brightness(90%);
+}
+
+.home {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: url("image/ImgMain.jpeg") no-repeat center;
+    min-height: 100vh;
+    color: #fff;
+    background-size: cover;
+    background-attachment: fixed;
+    font-family: 'Ubuntu', sans-serif;
+    overflow: hidden;
+  }
+  
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+  }
+  
+  .home .max-width {
+    width: 100%;
+    padding: 0 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    z-index: 2;
+    position: relative;
+  }
+  
+  .home-content {
+    margin-bottom: 50px;
+    color: white;
+    padding-top: 30px; /* ↓ abaixa o título principal */
+  }
+  
+  .TitlePrincipal {
+    font-size: clamp(3.5rem, 8vw, 5.5rem);
+    font-weight: 800;
+    line-height: 1.2;
+    color: #fff;
+    text-shadow:
+      0 0 10px crimson,
+      0 2px 1px rgba(220, 20, 60, 0.6);
+  }
+  
+  .subtitle {
+    font-size: clamp(1.5rem, 3.2vw, 2rem);
+    font-weight: 600;
+    color: crimson;
+    text-shadow:
+      0 0 6px rgba(220, 20, 60, 0.7),
+      0 2px 10px rgba(0, 0, 0, 0.2);
+    letter-spacing: 0.05em;
+  }
+
+  
+  
+  .home-about {
+    align-self: center;
+    margin-top: 40px;
+    max-width: 700px;
+    padding: 30px;
+    border-radius: 15px;
+    background: rgba(20, 20, 20, 0.55); /* levemente mais escuro */
+    border: 1.5px solid crimson;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    color: crimson;
+  }
+  
+  .about-content .right p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    text-align: justify;
+    color: #fff;
+  }
+  
+  
+  
+  @media (max-width: 768px) {
+    .home-about {
+      align-self: center;
+      padding: 20px;
+      margin-top: 30px;
+    }
+  
+    .about-content .right p {
+      text-align: left;
+    }
+  }
+  
+  
+
+
+/* Container geral para os serviços */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-sizing: border-box;
+  }
+  
+  /* Título padrão */
+  .title {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #fff;
+  }
+
+  .title-escuro {
+    font-size: 2rem;
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  
+  /* Caixa dos serviços - grid para cards */
+  .servicos-caixa {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+  }
+  
+  /* Card serviço */
+  .servicos-card {
+    background: #f9f9f9;
+    border: 1.5px solid crimson; /* borda fina */        
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease;
+  }
+  
+  .servicos-card:hover {
+    transform: translateY(-5px);
+  }
+  .servicos-imagem {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border: none;
+    display: block;              /* remove gap inline */
+    border-bottom: 1.5px solid crimson; /* borda grudada na imagem */
+  }
+  
+  .content {
+    margin: 0;
+    padding-top: 0;
+    
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* vertical */
+    align-items: center;     /* horizontal */
+    text-align: center;      /* texto fica centralizado */
+  }
+  
+  /*PASSO A PASSO*/
+  .timeline-section {
+    width: 100%;
+    padding: 60px 20px;
+    box-sizing: border-box;
+    overflow-x: visible;
+    
+    display: flex;
+    flex-direction: column;  /* deixar o título acima da timeline */
+    align-items: center;     /* centraliza tudo no eixo horizontal */
+  }
+  
+  .timeline-section > h2.title {
+    margin-bottom: 40px; /* espaço entre título e timeline */
+    text-align: center;  /* centraliza texto do título */
+    width: 100%;
+    max-width: 1200px;   /* alinhado com container da timeline */
+  }
+  
+  .timeline-container {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    justify-content: center;
+    width: 100%;  /* para respeitar max-width e padding da timeline-section */
+  }
+  
+  /* Mantém seus estilos para .timeline-step, .circle, .step-title e .step-desc */
+  
+  
+  /* Cada passo da timeline */
+  .timeline-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0; /* não encolher */
+    width: 120px;
+    background: #f3f3f3;
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+    text-align: center;
+    user-select: none;
+    color: #000; /* cor padrão do texto */
+    transition: background-color 0.3s ease, color 0.3s ease;  
+}
+
+.timeline-step:hover {
+    background: crimson;   /* fundo vermelho */
+    color: white;          /* texto branco */
+  }
+  
+  /* também troca a cor do círculo no hover do passo */
+  .timeline-step:hover .circle {
+    background: white;     /* círculo branco */
+    color: crimson;        /* número vermelho */
+    transition: background-color 0.3s ease, color 0.3s ease;
+  }
+  
+  .timeline-step:hover .step-desc {
+    color: white;
+  }
+
+  /* Circulo numerado */
+  .circle {
+    background-color: crimson; /* cor primária */
+    color: white;
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-weight: bold;
+    font-size: 1.2rem;
+    line-height: 48px;
+    margin-bottom: 10px;
+  }
+  
+  /* Texto do passo */
+  .step-title {
+    font-weight: 700;
+    margin-bottom: 5px;
+  }
+  
+  .step-desc {
+    font-size: 1rem;
+    color: #555;
+    font-weight: 600;
+  }
+  
+  
+  /* Responsivo */
+  @media (max-width: 768px) {
+    .timeline-container {
+      flex-direction: column;
+      align-items: center;
+      padding-left: 20px;
+      padding-right: 20px;
+    }
+  
+    .timeline-container::before {
+      top: unset;
+      left: 38px;
+      width: 4px;
+      height: 100%;
+    }
+  
+    .timeline-step {
+      text-align: left;
+      padding-left: 60px;
+      margin-bottom: 40px;
+    }
+  
+    .timeline-step .circle {
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+  }
+  
+/* ===== CONTATO ===== */
+.contact .contact-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: flex-start;
+  }
+  
+  .contact .contact-content .column {
+    width: calc(50% - 20px);
+    padding: 30px;
+    border-radius: 12px;
+    background: #fff;
+    border: 1px solid crimson;
+    box-shadow:
+      0 0 12px rgba(220, 20, 60, 0.4),
+      0 0 24px rgba(220, 20, 60, 0.3);
+    animation: pulsar 4s ease-in-out infinite alternate;
+  }
+  
+  /* === TÍTULOS DAS COLUNAS === */
+  .contact .contact-content .text {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: #000;
+    position: relative;
+    padding-bottom: 10px;
+  }
+  
+  .contact .contact-content .text::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 60px;
+    background: crimson;
+    border-radius: 2px;
+  }
+  
+  .contact .contact-content .left p {
+    text-align: left;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 30px;
+  }
+  
+  /* === ÍCONES DA COLUNA ESQUERDA === */
+  .contact .contact-content .icons {
+    margin: 25px 0;
+  }
+  
+  .contact .contact-content .row {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 25px;
+    transition: transform 0.3s ease;
+  }
+  
+  .contact .contact-content .row:hover {
+    transform: translateX(5px);
+  }
+  
+  .contact .contact-content .row i {
+    font-size: 28px;
+    color: crimson;
+    background: rgba(220, 20, 60, 0.1);
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+  }
+  
+  .contact .contact-content .info {
+    margin-left: 20px;
+  }
+  
+  .contact .contact-content .head {
+    font-weight: 600;
+    font-size: 18px;
+    color: #222;
+    margin-bottom: 5px;
+  }
+  
+  .contact .contact-content .sub-title {
+    color: #666;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+  
+  /* === FORMULÁRIO === */
+  .contact .right form {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .contact .right form .field {
+    width: 100%;
+    margin-bottom: 1.5rem;
+  }
+  
+  .contact .right form .field input,
+  .contact .right form .field select {
+    width: 100%;
+    padding: 14px 18px;
+    background: #fff;
+    border: 1px solid rgba(220, 20, 60, 0.3);
+    border-radius: 8px;
+    font-size: 15px;
+    font-family: 'Poppins', sans-serif;
+    color: #333;
+    transition: all 0.3s ease;
+    outline: none;
+    caret-color: crimson;
+  }
+  
+  .contact .right form input::placeholder {
+    color: #aaa;
+  }
+  
+  .contact .right form .field input:focus,
+  .contact .right form .field select:focus {
+    border-color: crimson;
+    box-shadow:
+      0 0 0 2px rgba(220, 20, 60, 0.4),
+      0 0 10px rgba(220, 20, 60, 0.5);
+  }
+  
+  /* SELECT */
+  .contact .right form .field select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23dc143c' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+  }
+  
+  .contact .right .select-wrapper {
+    position: relative;
+  }
+  
+  .contact .right .select-wrapper i {
+    position: absolute;
+    right: 16px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: crimson;
+  }
+  
+  /* BOTÃO MELHORADO */
+  .contact .button-area {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+  }
+  
+  .contact .button-area button {
+    background: crimson;
+    color: white;
+    border: none;
+    padding: 14px 28px;
+    border-radius: 50px;
+    font-weight: 700;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    text-transform: uppercase;
+    box-shadow: 0 8px 20px rgba(220, 20, 60, 0.4);
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .contact .button-area button::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -75%;
+    width: 200%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    transform: skewX(-45deg);
+    transition: 0.5s;
+  }
+  
+  .contact .button-area button:hover::after {
+    left: 100%;
+  }
+  
+  .contact .button-area button:hover {
+    transform: scale(1.04);
+    background: #b9002e;
+    box-shadow: 0 12px 25px rgba(220, 20, 60, 0.5);
+  }
+  
+  /* ANIMAÇÃO */
+  @keyframes pulsar {
+    0% {
+      box-shadow:
+        0 0 12px rgba(220, 20, 60, 0.3),
+        0 0 20px rgba(220, 20, 60, 0.2);
+    }
+    100% {
+      box-shadow:
+        0 0 18px rgba(220, 20, 60, 0.4),
+        0 0 30px rgba(220, 20, 60, 0.3);
+    }
+  }
+       
+/* ===== FOOTER ===== */
+/* footer */
+footer {
+    width: 100%;
+    background: #292624;
+    padding: 10px 30px; /* ainda menor padding */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    box-sizing: border-box;
+    min-height: 60px; /* altura mínima menor */
+  }
+  
+  /* texto */
+  footer p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #f1f1f1;
+    text-align: center;
+  }
+  
+  footer a {
+    color: crimson;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.3s ease;
+  }
+  
+  footer p a:hover {
+    color: #ff6a6a;
+  }
+  
+  /* container dos ícones */
+  .wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    padding: 10px 0 5px 0;
+    margin: 0;
+    gap: 25px;
+  }
+  
+  /* cada ícone */
+  .icon-content {
+    position: relative;
+    display: inline-block;
+  }
+  
+  /* link/ícone base */
+  .icon-content a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    background: #292624;
+    color: crimson;
+    border: 2px solid crimson;
+    text-decoration: none;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    outline: none; /* remove outline padrão */
+  }
+  
+  /* remove outline ao focar */
+  .icon-content a:focus {
+    outline: none;
+    box-shadow: none;
+  }
+  
+  /* preenchimento hover */
+  .icon-content a::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 0;
+    background: crimson;
+    transition: height 0.3s ease;
+    z-index: 0;
+  }
+  
+  .icon-content a:hover::before {
+    height: 100%;
+  }
+  
+  /* ícone */
+  .icon-content a i {
+    position: relative;
+    z-index: 1;
+    font-size: 26px;
+    transition: color 0.3s ease;
+  }
+  
+  .icon-content a:hover i {
+    color: #292624;
+  }
+  
+  /* tooltip */
+  .icon-content .tooltip {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: #292624;
+    color: crimson;
+    padding: 6px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    border: 1px solid crimson;
+    z-index: 10;
+    pointer-events: none;
+  }
+  
+  .icon-content:hover .tooltip {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  
