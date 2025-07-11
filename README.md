@@ -18,14 +18,11 @@ Basta abrir o arquivo `index.html` no navegador.
 Visual da seção inicial do site, com o nome da empresa e menu de navegação.
 ![Página Inicial](image/home.jpg)
 
-### Seção Sobre
-![Página Sobre](image/sobre.jpg)
-
 ### Seção Serviços
 ![Página Serviços](image/servicos.jpg)
-
-### Seção Passo a Passo
 ![Página Passo a Passo](image/passo.jpg)
+
+### Seção Projetos
 
 ### Seção Contato
 ![Página Contato](image/contato.jpg)
