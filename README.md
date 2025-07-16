@@ -20,9 +20,11 @@ Visual da seção inicial do site, com o nome da empresa e menu de navegação.
 
 ### Seção Serviços
 ![Página Serviços](image/servicos.jpg)
+## Passo a Passo
 ![Página Passo a Passo](image/passo.jpg)
 
 ### Seção Projetos
+![Página Projetos](image/Projetos.jpeg)
 
 ### Seção Contato
 ![Página Contato](image/contato.jpg)
