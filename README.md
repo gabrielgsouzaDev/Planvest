@@ -14,7 +14,7 @@ Basta abrir o arquivo `index.html` no navegador.
 
 ## Capturas de Tela
 
-### Página Inicial
+## Página Inicial
 Visual da seção inicial do site, com o nome da empresa e menu de navegação.
 ![Página Inicial](image/home.jpg)
 
