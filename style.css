@@ -177,57 +177,6 @@ section .title::after, .title-escuro::after{
     z-index: 1;
 }
 
-/* MENU HAMBÚRGUER */
-.menu-toggle {
-    display: none; /* Escondido no desktop */
-    cursor: pointer;
-    width: 30px;
-    height: 20px;
-    position: relative;
-    z-index: 1001;
-    background: transparent;
-    border: none;
-  }
-  
-  .menu-toggle span {
-    display: block;
-    position: absolute;
-    height: 3px;
-    width: 100%;
-    background: var(--primária);
-    border-radius: 3px;
-    left: 0;
-    transition: all 0.3s ease;
-  }
-  
-  .menu-toggle span:nth-child(1) {
-    top: 0;
-  }
-  
-  .menu-toggle span:nth-child(2) {
-    top: 50%;
-    transform: translateY(-50%);
-  }
-  
-  .menu-toggle span:nth-child(3) {
-    bottom: 0;
-  }
-  
-  /* Quando o menu está ativo */
-  .menu-toggle.active span:nth-child(1) {
-    top: 50%;
-    transform: translateY(-50%) rotate(45deg);
-  }
-  
-  .menu-toggle.active span:nth-child(2) {
-    opacity: 0;
-  }
-  
-  .menu-toggle.active span:nth-child(3) {
-    bottom: 50%;
-    transform: translateY(50%) rotate(-45deg);
-  }
-
 .scroll-up-btn{
     position: fixed;
     height: 45px;
@@ -257,105 +206,113 @@ section .title::after, .title-escuro::after{
 }
 
 .home {
-    position: relative;
-    display: flex;
-    align-items: center;
-    background: url("image/ImgMain.jpeg") no-repeat center;
-    min-height: 100vh;
-    color: #fff;
-    background-size: cover;
-    background-attachment: fixed;
-    font-family: 'Ubuntu', sans-serif;
-    overflow: hidden;
-  }
-  
-  .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-    z-index: 1;
-  }
-  
-  .home .max-width {
-    width: 100%;
-    padding: 0 40px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    z-index: 2;
-    position: relative;
-  }
-  
-  .home-content {
-    margin-bottom: 50px;
-    color: white;
-    padding-top: 30px; /* ↓ abaixa o título principal */
-  }
-  
-  .TitlePrincipal {
-    font-size: clamp(3.5rem, 8vw, 5.5rem);
-    font-weight: 800;
-    line-height: 1.2;
-    color: #fff;
-    text-shadow:
-      0 0 10px crimson,
-      0 2px 1px rgba(220, 20, 60, 0.6);
-  }
-  
-  .subtitle {
-    font-size: clamp(1.5rem, 3.2vw, 2rem);
-    font-weight: 600;
-    color: crimson;
-    text-shadow:
-      0 0 6px rgba(220, 20, 60, 0.7),
-      0 2px 10px rgba(0, 0, 0, 0.2);
-    letter-spacing: 0.05em;
-  }
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("image/ImgMain.jpeg") no-repeat center center;
+  background-size: cover;
+  background-attachment: fixed;
+  min-height: 100vh;
+  font-family: 'Ubuntu', sans-serif;
+  color: #fff;
+  overflow: hidden;
+}
 
-  
-  
-  .home-about {
-    align-self: center;
-    margin-top: 40px;
-    max-width: 700px;
-    padding: 30px;
-    border-radius: 15px;
-    background: rgba(20, 20, 20, 0.55); /* levemente mais escuro */
-    border: 1.5px solid crimson;
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-    color: crimson;
-  }
-  
-  .about-content .right p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    text-align: justify;
-    color: #fff;
-  }
-  
-  
-  
-  @media (max-width: 768px) {
-    .home-about {
-      align-self: center;
-      padding: 20px;
-      margin-top: 30px;
-    }
-  
-    .about-content .right p {
-      text-align: left;
-    }
-  }
-  
-  
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: rgba(20, 20, 20, 0.6); /* escurece a imagem */
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+}
 
+.home .max-width {
+  z-index: 2;
+  padding: 0 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.TitlePrincipal {
+  font-size: clamp(3.5rem, 8vw, 5.5rem);
+  font-weight: 800;
+  color: #fff;
+  text-shadow:
+    0 0 10px crimson,
+    0 2px 2px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+}
+
+.subtitle {
+  font-size: clamp(1.5rem, 3vw, 2rem);
+  color: crimson;
+  text-shadow:
+    0 0 6px rgba(220, 20, 60, 0.6),
+    0 1px 10px rgba(0, 0, 0, 0.2);
+  margin-bottom: 30px;
+}
+
+.home-about {
+  background: rgba(41, 38, 36, 0.7);
+  border: 2px solid crimson;
+  padding: 30px;
+  border-radius: 16px;
+  max-width: 750px;
+  box-shadow: 0 0 20px rgba(220, 20, 60, 0.2);
+  color: #fff;
+}
+
+.home-about p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: #eee;
+}
+
+.header-icons {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  margin-left: 20px;
+}
+
+.header-icons a {
+  font-size: 1.7rem;
+  transition: transform 0.3s, filter 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-icons a:hover {
+  transform: scale(1.15);
+  filter: brightness(1.2);
+  cursor: pointer;
+}
+
+/* WhatsApp */
+.header-icons a.whatsapp i {
+  color: #25D366;
+}
+
+/* LinkedIn */
+.header-icons a.linkedin i {
+  color: #0A66C2;
+}
+
+/* Email com vermelho mais equilibrado */
+.header-icons a.email i {
+  color: #E63946;
+}
 
 /* Container geral para os serviços */
 .container {
-    max-width: 1200px;
+    max-width: 1000px;
     margin: 0 auto;
     padding: 0 20px;
     box-sizing: border-box;
@@ -375,46 +332,49 @@ section .title::after, .title-escuro::after{
     text-align: center;
   }
   
-  /* Caixa dos serviços - grid para cards */
   .servicos-caixa {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
     gap: 20px;
+    justify-content: center;
   }
   
-  /* Card serviço */
   .servicos-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
     background: #f9f9f9;
-    border: 1.5px solid crimson; /* borda fina */        
+    border: 1.5px solid crimson;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease;
   }
   
   .servicos-card:hover {
     transform: translateY(-5px);
   }
+  
   .servicos-imagem {
     width: 100%;
-    height: 180px;
+    height: 160px;
     object-fit: cover;
-    border: none;
-    display: block;              /* remove gap inline */
-    border-bottom: 1.5px solid crimson; /* borda grudada na imagem */
+    display: block;
+    border-bottom: 1.5px solid crimson;
   }
-  
+
   .content {
-    margin: 0;
-    padding-top: 0;
-    
+    padding: 15px;
+    font-size: 0.95rem;
     display: flex;
     flex-direction: column;
-    justify-content: center; /* vertical */
-    align-items: center;     /* horizontal */
-    text-align: center;      /* texto fica centralizado */
+    justify-content: center;
+    align-items: center;
+    text-align: center
   }
   
+  
+
   /*PASSO A PASSO*/
   .timeline-section {
     width: 100%;
@@ -460,7 +420,7 @@ section .title::after, .title-escuro::after{
     text-align: center;
     user-select: none;
     color: #000; /* cor padrão do texto */
-    transition: background-color 0.3s ease, color 0.3s ease;  
+    transition: background-color 0.6s ease, color 0.6s ease;  
 }
 
 .timeline-step:hover {
@@ -504,35 +464,63 @@ section .title::after, .title-escuro::after{
     font-weight: 600;
   }
   
-  
-  /* Responsivo */
-  @media (max-width: 768px) {
-    .timeline-container {
-      flex-direction: column;
-      align-items: center;
-      padding-left: 20px;
-      padding-right: 20px;
-    }
-  
-    .timeline-container::before {
-      top: unset;
-      left: 38px;
-      width: 4px;
-      height: 100%;
-    }
-  
-    .timeline-step {
-      text-align: left;
-      padding-left: 60px;
-      margin-bottom: 40px;
-    }
-  
-    .timeline-step .circle {
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
+
+  .projects {
+    background: #111; /* fundo escuro para contraste */
+    padding: 80px 20px;
+    color: #fff;
   }
+  
+  .section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    color: crimson;
+    margin-bottom: 50px;
+    text-shadow: 0 0 10px rgba(220, 20, 60, 0.4);
+  }
+  
+  .project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+  }
+  
+  .project-card {
+    background: #1b1b1b;
+    border: 1px solid crimson;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 15px rgba(220, 20, 60, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 0 25px rgba(220, 20, 60, 0.4);
+  }
+  
+  .project-card img {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+  }
+  
+  .project-info {
+    padding: 20px;
+  }
+  
+  .project-info h3 {
+    color: crimson;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+  }
+  
+  .project-info p {
+    font-size: 0.95rem;
+    color: #ddd;
+    line-height: 1.5;
+  }
+  
   
 /* ===== CONTATO ===== */
 .contact .contact-content {
@@ -748,7 +736,6 @@ section .title::after, .title-escuro::after{
   }
        
 /* ===== FOOTER ===== */
-/* footer */
 footer {
     width: 100%;
     background: #292624;
@@ -773,7 +760,6 @@ footer {
   footer a {
     color: crimson;
     text-decoration: none;
-    font-weight: 500;
     transition: color 0.3s ease;
   }
   
@@ -851,7 +837,367 @@ footer {
   .icon-content a:hover i {
     color: #292624;
   }
-  
 
+/* Remove o efeito azul no toque em navegadores WebKit (Safari, Chrome mobile) */
+button, a {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Remove outline padrão no focus e active */
+a:focus,
+a:active,
+button:focus,
+button:active {
+  outline: none;
+  box-shadow: none;
+}
+
+
+/* ===== RESPONSIVIDADE COMPLETA ATUALIZADA ===== */
+/* Adicionar largura máxima e box-sizing para evitar overflow */
+body, html {
+  max-width: 100vw;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+
+/* Garantir que elementos não ultrapassem a largura da tela */
+.sobre,
+.navbar,
+.cabecalho,
+.projetos,
+.contatos{
+  max-width: 100%;
+  box-sizing: border-box;
+}
+/* Para evitar que textos e conteúdo saiam da tela */
+.sobre-caixa,
+.menu,
+.projetos-caixa {
+  max-width: 100%;
+  box-sizing: border-box;
+  word-wrap: break-word;
+  word-break: break-word;
+}
+/* Forçar quebra de linha e evitar larguras fixas que causam overflow */
+h1, p, .sobre-paragrafo, .perfil-descricao, .menu-link {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
+/* Dispositivos grandes (notebooks/desktops médios) */
+@media (max-width: 1200px) {
+  .navbar .max-width {
+    padding: 0 30px;
+  }
   
+  .projetos-caixa {
+    gap: 2rem;
+  }
+}
+
+/* Tablets (ponto de ativação do menu hambúrguer) */
+@media (max-width: 992px) {
+  /* Ajustes gerais */
+  .max-width {
+    padding: 0 30px;
+  }
+
+  /* Cabeçalho e título */
+  .cabecalho .max-width {
+    padding-top: 70px; /* Espaço seguro para o título */
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-top: 30px;
+    line-height: 1.3;
+    padding: 0 20px;
+    text-align: center;
+  }
+
+  .contatos-titulos, .projetos-titulos {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--primária);
+    text-shadow: 0 0 8px rgba(224, 168, 0, 0.3); /* Efeito neon no título */
+  }
+
+  /* Menu Hambúrguer otimizado */
+  .menu {
+    position: fixed;
+    top: 70px;
+    left: -100%;
+    width: 280px; /* Largura fixa ideal */
+    height: calc(100vh - 70px);
+    background: var(--escuro);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 25px 30px;
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    z-index: 999;
+    box-shadow: 5px 0 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .menu.active {
+    left: 0;
+  }
+
+  .menu li {
+    margin: 10px 0;
+    width: 100%;
+  }
+
+  .menu-link {
+    font-size: 1.15rem;
+    padding: 12px 15px;
+    display: block;
+    width: 100%;
+    border-radius: 6px;
+    transition: all 0.3s ease;
+  }
+
+  .menu-link:hover {
+    background: rgba(255, 255, 255, 0.1);
+    transform: translateX(5px);
+  }
+
+  /* Overlay semi-transparente */
+  .menu-overlay {
+    position: fixed;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 70px);
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s;
+    z-index: 998;
+  }
+
+  .menu-overlay.active {
+    opacity: 1;
+    pointer-events: all;
+  }
+
+  /* Conteúdo */
+  .foto-perfil {
+    width: 220px;
+    height: 220px;
+  }
+
+  .projetos-caixa {
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  }
+}
+
+
+/* Tablets pequenos */
+@media (max-width: 768px) {
+   /* Header */
+ h1 {
+  font-size: 2rem;
+  margin-top: 25px;
+}
+
+.contatos-titulos, .projetos-titulos {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: var(--primária);
+  text-shadow: 0 0 8px rgba(224, 168, 0, 0.3); /* Efeito neon no título */
+}
+
+.perfil-descricao {
+  font-size: 1.1rem;
+  padding: 0 15px;
+}
+
+/* Projetos */
+.projetos-card {
+  max-width: 100%;
+}
+
+/* Contatos */
+.contact {
+  padding: 1.5rem;
+}
+
+/* Footer */
+.social a {
+  width: 55px;
+  height: 55px;
+  font-size: 1.5em;
+}
+
+  /* Wrapper (ícones sociais) */
+  .wrapper {
+    justify-content: center;
+    gap: 14px;
+    flex-wrap: nowrap;
+    padding: 20px 0;
+  }
+
+  .wrapper .icon-content a {
+    font-size: 1.3rem;
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Seção Sobre */
+  .sobre {
+    padding: 4rem 1.5rem;
+  }
+
+  .sobre-caixa {
+    padding: 1.5rem;
+  }
+
+  .sobre-paragrafo {
+    font-size: 1.1rem;
+  }
+}
+
+/* Celulares médios */
+@media (max-width: 576px) {
+  /* Ajustes gerais */
+  .navbar,
+  .cabecalho,
+  .sobre,
+  .projetos,
+  .contatos {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+
+  /* Header */
+  h1 {
+    font-size: 1.6rem;
+    margin-top: 30px;
+    padding: 0 10px;
+  }
+
+  .foto-perfil {
+    width: 190px;
+    height: 190px;
+  }
+
+  /* Menu */
+  .menu {
+    width: 250px;
+    padding: 20px;
+  }
+
+  .menu-link {
+    font-size: 1.1rem;
+    padding: 10px 12px;
+  }
+
+  /* Projetos */
+  .projetos-caixa {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+
+  /* Footer */
+  .social {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .social a {
+    width: 50px;
+    height: 50px;
+    font-size: 1.4em;
+    margin: 0;
+  }
+
+  .wrapper {
+    gap: 8px;
+    flex-wrap: nowrap;
+  }
+
+  .wrapper .icon-content a {
+    font-size: 1.2rem;
+    width: 45px;
+    height: 45px;
+  }
+
+  .sobre {
+    padding: 3rem 1rem;
+  }
+
+  .sobre-caixa {
+    padding: 1.2rem;
+  }
+
+  .sobre-paragrafo {
+    font-size: 1rem;
+  }
+
+}
+
+/* Celulares pequenos */
+@media (max-width: 400px) {
+    /* Header */
+    h1 {
+      font-size: 1.6rem;
+      margin-top: 25px;
+    }
+
+    .foto-perfil {
+      width: 170px;
+      height: 170px;
+    }
   
+    /* Menu */
+    .menu-toggle {
+      width: 26px;
+      height: 20px;
+    }
+  
+    /* Botões */
+    .btn-12--gooey {
+      padding: 0.7em 1em;
+      font-size: 14px;
+    }
+  
+    /* Footer */
+    footer h2 {
+      font-size: 1.4em;
+    }
+  
+    .footer-creditos {
+      font-size: 0.8em;
+    }
+
+  .wrapper {
+    gap: 5px;
+  }
+
+  .wrapper .icon-content a {
+    font-size: 1.1rem;
+    width: 42px;
+    height: 42px;
+  }
+
+  .sobre {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
+  }
+
+  .sobre-caixa {
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 0.8rem !important;
+    padding-right: 0.8rem !important;
+  }
+  .sobre-paragrafo {
+    font-size: 0.95rem;
+  }
+}
