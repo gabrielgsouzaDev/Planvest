@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Planvest Engenharia - Soluções em Projetos e Obras</title>
+    <meta name="description"
+        content="Planvest Engenharia: projetos de engenharia com qualidade, segurança e eficiência. Atendemos residências, comerciais e industriais com soluções personalizadas.">
+
+    <!-- Fontes -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- Ícones (Font Awesome) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* Reset e estilos globais */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5 {
+            font-weight: 600;
+            color: #1a1a1a;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            margin-bottom: 1rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+
+        .section {
+            padding: 6rem 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 3px;
+            background-color: #e53935;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.8rem;
+            background-color: #e53935;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            text-align: center;
+        }
+
+        .btn:hover {
+            background-color: #c62828;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid #e53935;
+            color: #e53935;
+        }
+
+        .btn-outline:hover {
+            background-color: #e53935;
+            color: white;
+        }
+
+        /* Header */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #e53935;
+        }
+
+        .logo img {
+            width: 60px;
+            height: 60px;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2.2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: #e53935;
+        }
+
+        .nav-links a.active {
+            color: #e53935;
+            /* ou qualquer cor que destaque */
+            border-bottom: 2px solid #e53935;
+            /* opcional, estilo sublinhado */
+        }
+
+        /* Hero */
+        .hero {
+            background:
+                linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.7)),
+                url('img/main/hero.jpeg') no-repeat center center;
+            background-size: cover;
+            background-blend-mode: darken;
+            /* ou multiply */
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* Sobre */
+        .about {
+            background-color: white;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-image {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .about-image img {
+            width: 70%;
+            height: auto;
+            display: block;
+        }
+
+        /* Serviços */
+        .services {
+            background-color: #f5f5f5;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .service-card {
+            background-color: white;
+            border: 1px solid #e53935;
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .service-card h3 {
+            font-weight: 600;
+            font-size: 17px;
+            /* entre medium (16px) e large (20px) */
+            color: #1a1a1a;
+        }
+
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            font-size: 3rem;
+            color: #e53935;
+            margin-bottom: 1rem;
+        }
+
+        /* Portfólio */
+        .portfolio {
+            background-color: white;
+        }
+
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .portfolio-item {
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .portfolio-item img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .portfolio-info {
+            padding: 1.5rem;
+            background-color: white;
+        }
+
+        .portfolio-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* Depoimentos */
+        .testimonials {
+            background-color: #f5f5f5;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .testimonial-card {
+            background-color: white;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            position: relative;
+        }
+
+        .testimonial-card::before {
+            content: '"';
+            font-size: 4rem;
+            color: #e53935;
+            opacity: 0.2;
+            position: absolute;
+            top: 1rem;
+            left: 1rem;
+        }
+
+        .client-info {
+            display: flex;
+            align-items: center;
+            margin-top: 1.5rem;
+        }
+
+        .client-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-right: 1rem;
+        }
+
+        .client-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /*FAQ*/
+            /* FAQ Passo a Passo */
+    .faq-section {
+        padding: 4rem 1rem;
+        background-color: #fff;
+    }
+
+    .faq-container {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+
+    .faq-title {
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 600;
+        margin-bottom: 2rem;
+        position: relative;
+        display: inline-block;
+    }
+
+    .faq-title::after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 3px;
+        background-color: #e53935;
+    }
+
+    .faq-item {
+        border: 1px solid #e53935;
+        border-radius: 8px;
+        margin-bottom: 1rem;
+        overflow: hidden;
+        box-shadow: 0 3px 8px rgba(0,0,0,0.05);
+    }
+
+    .faq-question {
+        width: 100%;
+        text-align: left;
+        padding: 1rem 1.5rem;
+        font-size: 1.1rem;
+        font-weight: 600;
+        background-color: #f9f9f9;
+        border: none;
+        cursor: pointer;
+        outline: none;
+        transition: background 0.3s ease;
+    }
+
+    .faq-question:hover {
+        background-color: #ffe5e5;
+    }
+
+    .faq-answer {
+        max-height: 0;
+        overflow: hidden;
+        padding: 0 1.5rem;
+        background-color: #fff;
+        transition: max-height 0.3s ease, padding 0.3s ease;
+    }
+
+    .faq-answer p {
+        padding: 1rem 0;
+        margin: 0;
+    }
+
+    .faq-item.active .faq-answer {
+        max-height: 200px; /* ajustável conforme conteúdo */
+        padding: 1rem 1.5rem;
+    }
+
+        /* Contato */
+        .contact {
+            background-color: #1a1a1a;
+            color: white;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+        }
+
+        .contact-info h3 {
+            margin-bottom: 1.5rem;
+            color: #e53935;
+        }
+
+        .contact-info p {
+            margin-bottom: 1rem;
+            color: #ccc;
+        }
+
+ /* Container do formulário */
+.contact-form {
+    background: #f9f9f9;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+/* Inputs, textarea e select */
+.contact-form input,
+.contact-form textarea,
+.contact-form select {
+    width: 100%;
+    padding: 1rem 1.2rem;
+    margin-bottom: 1rem;
+    border: 1px solid #e53935;
+    border-radius: 8px;
+    background-color: #fff;
+    color: #333;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    box-sizing: border-box;
+}
+
+/* Altura do textarea */
+.contact-form textarea {
+    height: 150px;
+    resize: none;
+}
+
+/* Estilo para o select */
+.contact-form select {
+    appearance: none;
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5 7L10 12L15 7' stroke='%23666' stroke-width='2'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 1rem;
+    cursor: pointer;
+}
+
+/* Efeitos de foco */
+.contact-form input:focus,
+.contact-form textarea:focus,
+.contact-form select:focus {
+    border-color: #e53935;
+    box-shadow: 0 0 6px rgba(204, 0, 0, 0.3);
+    outline: none;
+}
+
+/* Botão */
+.contact-form .btn {
+    display: inline-block;
+    padding: 1rem 2rem;
+    background: #e53935;
+    color: #fff;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Hover no botão */
+.contact-form .btn:hover {
+    background: #2da3c7;
+    transform: translateY(-2px);
+}
+
+/* Efeito de clique */
+.contact-form .btn:active {
+    transform: translateY(0);
+}
+
+        /* Footer */
+        footer {
+            background-color: #000;
+            color: #fff;
+            padding: 3rem 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-column h3 {
+            color: #e53935;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-links {
+            list-style: none;
+        }
+
+        .footer-links li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-links a {
+            color: #ccc;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover {
+            color: #e53935;
+        }
+
+        .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .social-links a:hover {
+            color: #e53935;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #333;
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+
+  footer p {
+    margin: 4px 0;
+    font-size: 14px;
+    color: #f1f1f1;
+    text-align: center;
+  }
+  
+  footer a {
+    color: #e53935;
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  
+  footer p a:hover {
+    color: crimson;
+  }
+
+        /* Responsividade */
+        @media (max-width: 900px) {
+
+            .about-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .section {
+                padding: 4rem 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .section {
+                padding: 3rem 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container navbar">
+            <div class="logo">
+                <!--<img src="https://placehold.co/60x60/e53935/ffffff?text=PE" alt="Planvest Engenharia">-->
+                <span>Planvest Engenharia</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Início</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <!--<li><a href="#portifolio">Portfólio</a></li>-->
+                <li><a href="#depoimentos">Depoimentos</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-content">
+            <h1>Soluções em Engenharia para o seu Projeto</h1>
+            <p>Projetos seguros, eficientes e sustentáveis com foco na qualidade e no prazo. Transformamos ideias em
+                realidade com tecnologia e profissionalismo.</p>
+            <a href="#contato" class="btn">Solicitar Orçamento</a>
+        </div>
+    </section>
+
+    <!-- Sobre a Empresa -->
+    <section id="sobre" class="section about">
+        <div class="container">
+            <h2 class="section-title">Sobre Nós</h2>
+            <div class="about-grid">
+                <div class="about-image">
+                    <img src="img/main/logo.png" alt="Equipe Planvest Engenharia">
+                </div>
+                <div>
+                    <p>Desde 2010, a Planvest Engenharia tem se dedicado a entregar soluções completas em engenharia
+                        civil, arquitetura e construção. Com uma equipe altamente qualificada e comprometida com
+                        excelência, trabalhamos com rigor técnico e respeito ao meio ambiente.</p>
+                    <p>Nossa missão é proporcionar aos nossos clientes projetos que não apenas atendam às normas
+                        técnicas, mas também superem as expectativas em termos de qualidade, segurança e
+                        custo-benefício.</p>
+                    <p>Nosso diferencial está na combinação de inovação tecnológica com experiência prática, garantindo
+                        obras com menor impacto ambiental, maior durabilidade e eficiência energética.</p>
+                    <a href="#contato" class="btn">Conheça nosso trabalho</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Serviços -->
+    <section id="servicos" class="section services">
+        <div class="container">
+            <h2 class="section-title">Nossos Serviços</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3>Projetos e Consultoria</h3>
+                    <p>Projetos arquitetônicos, laudos técnicos, vistorias e acompanhamento de obras, garantindo
+                        qualidade, funcionalidade e segurança.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-hard-hat"></i>
+                    </div>
+                    <h3>Construção e Reformas</h3>
+                    <p>Construções completas e reformas residenciais, comerciais e industriais, do alicerce ao
+                        acabamento, com foco em qualidade e segurança.</p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h3>Fachadas e Revestimentos</h3>
+                    <p>Manutenção, pintura, impermeabilização de fachadas e aplicação de pisos, azulejos e porcelanatos.
+                    </p>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                    <h3>Telhados e Esquadrias</h3>
+                    <p>Instalação, reparo e substituição de telhados, coberturas, portas, janelas, guarda-corpos e
+                        sacadas sob medida.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfólio
+    <section id="portifolio" class="section portfolio">
+        <div class="container">
+            <h2 class="section-title">Nosso Portfólio</h2>
+            <div class="portfolio-grid">
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/1a1a1a/ffffff?text=Projeto+Residencial"
+                        alt="Projeto Residencial">
+                    <div class="portfolio-info">
+                        <h3>Residência Moderna</h3>
+                        <p>Projeto de casa térrea com 3 dormitórios, área gourmet e jardim. Economia de 15% no consumo
+                            de energia com soluções sustentáveis.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/1a1a1a/ffffff?text=Comercial+Modernizado"
+                        alt="Comercial Modernizado">
+                    <div class="portfolio-info">
+                        <h3>Reforma Comercial</h3>
+                        <p>Modernização de loja comercial com layout otimizado, iluminação eficiente e aumento de 25% na
+                            conversão de vendas.</p>
+                    </div>
+                </div>
+                <div class="portfolio-item">
+                    <img src="https://placehold.co/400x300/1a1a1a/ffffff?text=Edificio+Residencial"
+                        alt="Edifício Residencial">
+                    <div class="portfolio-info">
+                        <h3>Edifício Residencial</h3>
+                        <p>Projeto de condomínio com 12 andares, sistema de captação de água da chuva e painéis solares,
+                            reduzindo custos operacionais em 30%.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section> -->
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="section testimonials">
+        <div class="container">
+            <h2 class="section-title">O Que Dizem Nossos Clientes</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <p>"A Planvest Engenharia realizou um ótimo trabalho na reforma do nosso escritório. A equipe foi
+                        profissional, pontual e entregou tudo no prazo combinado. Recomendo!"</p>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/50x50/1a1a1a/ffffff?text=JR" alt="João Rocha">
+                        </div>
+                        <div>
+                            <h4>João Rocha</h4>
+                            <p>Diretor da Tech Solutions</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"Ficamos muito satisfeitos com o projeto da nossa nova residência. A equipe da Planvest ouviu
+                        nossas necessidades e transformou nossas ideias em um lar perfeito."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/50x50/1a1a1a/ffffff?text=MS" alt="Maria Silva">
+                        </div>
+                        <div>
+                            <h4>Maria Silva</h4>
+                            <p>Cliente particular</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <p>"A qualidade do trabalho da Planvest é impecável. Desde o projeto até a execução, tudo foi feito
+                        com atenção aos detalhes e respeito às normas técnicas."</p>
+                    <div class="client-info">
+                        <div class="client-avatar">
+                            <img src="https://placehold.co/50x50/1a1a1a/ffffff?text=PC" alt="Pedro Costa">
+                        </div>
+                        <div>
+                            <h4>Pedro Costa</h4>
+                            <p>Administrador de Condomínios</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+<!-- FAQ Passo a Passo -->
+<section class="faq-section" id="passo-a-passo">
+    <div class="faq-container">
+        <h2 class="faq-title">Passo a Passo</h2>
+        <div class="faq-item">
+            <button class="faq-question">1º Passo - Contato</button>
+            <div class="faq-answer">
+                <p>Entre em contato conosco para iniciar seu projeto. Nosso atendimento é rápido e personalizado.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">2º Passo - Projeto</button>
+            <div class="faq-answer">
+                <p>Desenvolvemos o projeto detalhado, atendendo todas as suas necessidades e expectativas.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">3º Passo - Orçamento</button>
+            <div class="faq-answer">
+                <p>Enviamos o orçamento completo e transparente, sem custos ocultos.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">4º Passo - Contrato</button>
+            <div class="faq-answer">
+                <p>Formalizamos o contrato para garantir segurança e compromisso de ambas as partes.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">5º Passo - Obra</button>
+            <div class="faq-answer">
+                <p>Executamos a obra com qualidade, cumprindo prazos e padrões técnicos rigorosos.</p>
+            </div>
+        </div>
+        <div class="faq-item">
+            <button class="faq-question">6º Passo - Entrega</button>
+            <div class="faq-answer">
+                <p>Realizamos a entrega final com acompanhamento e garantia de satisfação.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+    <!-- Contato -->
+    <section id="contato" class="section contact">
+        <div class="container">
+            <h2 class="section-title">Entre em Contato</h2>
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <h3>Informações de Contato</h3>
+                    <!--<p><i class="fas fa-map-marker-alt"></i> Rua das Engenharias, 123 - São Paulo, SP</p>-->
+                    <p><i class="fas fa-phone"></i>+55 (11) 99876-5432</p>
+                    <p><i class="fas fa-envelope"></i> contato@planvest.com.br</p>
+                    <p><i class="fas fa-clock"></i> Segunda a Sexta: 8h às 18h</p>
+                    <div style="margin-top: 1.5rem;">
+                        <a href="https://wa.me/5513988684493" target="_blank" class="btn btn-outline"><i
+                                class="fab fa-whatsapp"></i> Fale pelo WhatsApp</a>
+                    </div>
+                </div>
+<form class="contact-form" name="contact" method="POST" data-netlify="true">
+  <!-- Campo oculto exigido pelo Netlify -->
+  <input type="hidden" name="form-name" value="contact">
+
+  <input type="text" name="nome" placeholder="Seu Nome" required>
+  <input type="tel" name="telefone" id="telefone" placeholder="Seu Telefone" required>
+
+  <select name="assunto" required>
+    <option value="">Selecione o assunto</option>
+    <option value="Orçamento">Solicitar Orçamento</option>
+    <option value="Projeto">Projetos de Engenharia</option>
+    <option value="Obras">Execução de Obras</option>
+    <option value="Reforma">Reformas e Manutenções</option>
+    <option value="Fachada">Serviços em Fachadas</option>
+    <option value="Revestimento">Aplicação de Revestimentos</option>
+    <option value="Impermeabilização">Impermeabilizações</option>
+    <option value="Elogio">Elogio</option>
+    <option value="Reclamação">Reclamação</option>
+    <option value="Outro">Outro</option>
+  </select>
+
+  <textarea name="mensagem" placeholder="Sua Mensagem" required></textarea>
+  <button type="submit" class="btn">Enviar Mensagem</button>
+</form>
+
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Planvest Engenharia</h3>
+                    <p>Projetos de engenharia com qualidade, segurança e eficiência.</p>
+                   <p>Transformando ideias em realidade.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Links Rápidos</h3>
+                    <ul class="footer-links">
+                        <li><a href="#inicio">Início</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#servicos">Serviços</a></li>
+                        <li><a href="#portifolio">Portfólio</a></li>
+                        <li><a href="#depoimentos">Depoimentos</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                    </ul>
+                </div>
+                <!--<div class="footer-column">
+                    <h3>Políticas</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Garantia</a></li>
+                        <li><a href="#">FAQ</a></li>
+                    </ul>
+                </div>-->
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Planvest Engenharia. Todos os direitos reservados.</p>
+                  <p>Desenvolvido por <a href="https://gabrielsouza-dev.netlify.app/" target="_blank" rel="noopener">Gabriel Gonçalves de Souza</a></p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Função para scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                window.scrollTo({
+                    top: targetElement.offsetTop - 80,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Formulário de contato
+// Máscara de telefone (formato brasileiro: (99) 99999-9999)
+document.getElementById('telefone').addEventListener('input', function (e) {
+    let value = e.target.value.replace(/\D/g, ""); // só números
+    if (value.length > 11) value = value.slice(0, 11);
+
+    if (value.length <= 10) {
+        e.target.value = value.replace(/(\d{2})(\d{4})(\d{0,4})/, "($1) $2-$3");
+    } else {
+        e.target.value = value.replace(/(\d{2})(\d{5})(\d{0,4})/, "($1) $2-$3");
+    }
+});
+
+// Validação extra de email (HTML já valida, mas aqui reforçamos)
+document.querySelector('.contact-form').addEventListener('submit', function (e) {
+    const email = this.querySelector('input[name="email"]').value;
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if (!regexEmail.test(email)) {
+        e.preventDefault();
+        alert("Por favor, insira um e-mail válido.");
+    }
+});
+
+
+
+        // Animação de entrada para elementos visíveis
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.section');
+            const windowHeight = window.innerHeight;
+
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 100;
+
+                if (elementTop < windowHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Inicializa animações quando a página carrega
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+
+        // Adiciona animações de entrada
+        document.querySelectorAll('.section').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+        });
+
+    // FAQ interativo
+    document.querySelectorAll('.faq-item').forEach(item => {
+        const btn = item.querySelector('.faq-question');
+        btn.addEventListener('click', () => {
+            item.classList.toggle('active');
+        });
+    });
+
+        // Destaque do menu conforme a seção visível
+        const navLinks = document.querySelectorAll('.nav-links a'); // ajuste se seu menu não for nav a
+        const sections = document.querySelectorAll('.section');
+
+        function highlightMenu() {
+            let scrollPos = window.scrollY || window.pageYOffset;
+
+            // Se estiver no topo da página, ativa o link #inicio
+            if (scrollPos < 50) {
+                navLinks.forEach(link => link.classList.remove('active'));
+                const inicioLink = document.querySelector('.nav-links a[href="#inicio"]');
+                if (inicioLink) inicioLink.classList.add('active');
+                return;
+            }
+
+            sections.forEach(section => {
+                const top = section.offsetTop - 100; // ajuste conforme altura do menu
+                const bottom = top + section.offsetHeight;
+                const id = section.getAttribute('id');
+
+                if (scrollPos >= top && scrollPos < bottom) {
+                    navLinks.forEach(link => link.classList.remove('active'));
+                    const activeLink = document.querySelector(`.nav-links a[href="#${id}"]`);
+                    if (activeLink) activeLink.classList.add('active');
+                }
+            });
+        }
+
+
+        window.addEventListener('scroll', highlightMenu);
+        window.addEventListener('load', highlightMenu);
+
+    </script>
+</body>
+
+</html>
