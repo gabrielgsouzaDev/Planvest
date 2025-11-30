@@ -1,6 +1,6 @@
-# Planvest Engenharia
+# Planvest
 
-Bem-vindo ao repositório da **Planvest Engenharia**!
+Bem-vindo ao repositório da **Planvest**!
 
 Este projeto é um site institucional para a Planvest Engenharia, focado em apresentar soluções em projetos e obras de engenharia civil, arquitetura e construção. O site destaca os serviços oferecidos, diferenciais, depoimentos de clientes, informações de contato e um formulário para solicitação de orçamento.
 
